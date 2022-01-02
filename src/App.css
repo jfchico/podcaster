@@ -1,0 +1,9 @@
+.App {
+  text-align: left;
+  padding: 40px;
+}
+
+.employee-details {
+  display: flex;
+  flex-direction: column;
+}

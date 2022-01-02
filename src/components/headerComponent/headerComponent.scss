@@ -1,0 +1,33 @@
+.header-component {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #858585;
+  margin-bottom: 10px;
+  
+  span {
+    color: #2a78ba;
+    padding: 10px;
+  }
+
+  .header-title {
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .fetching-indicator {
+    display: none;
+
+    &.fetching {
+      display: block;
+      animation: fetching 2s infinite;
+    }
+  }
+}
+
+@keyframes fetching {
+  0% {color: #2a78ba;;}
+  25% {color: #6794b8;}
+  50% {color: #ffffff;}
+  75% {color: #6794b8;}
+  100% {color: #2a78ba;}
+}

@@ -1,0 +1,39 @@
+$borderColor: #ffffff;
+$shadowColor: rgba(0, 0, 0, 0.2);
+$borderStyle: 1px solid $borderColor;
+
+.podcast-card {
+  width: 200px;
+  height: 180px;
+  margin: 20px;
+  box-shadow: 2px 2px 2px 2px $shadowColor;
+  border: $borderStyle;
+  border-radius: 5px;
+  text-align: center;
+
+  .card-image {
+    align-items: center;
+    position: relative;
+    top: -25px;
+    overflow: hidden;
+
+    img {
+      border-radius: 50%;
+      border: $borderStyle;
+      box-shadow: 1px 1px 1px 1px $shadowColor;
+    }
+  }
+
+  .podcast-author {
+    display: block;
+    margin-top: -20px;
+
+    span {
+      margin: 5px;
+    }
+
+    .podcast-name {
+      font-weight: 600;
+    }
+  }
+}
