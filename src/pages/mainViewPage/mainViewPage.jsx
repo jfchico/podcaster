@@ -3,9 +3,11 @@ import { HeaderComponent } from '../../components';
 import { PodcastCard } from '../../components';
 
 import './mainViewPage.scss';
+import { PodcastFilter } from '../../components/podcastFilter';
 
 
 export const MainViewPage = props => {
+  const [filteredPodcasts, setFilteredPodcasts] = React.useState([]);
 
   React.useEffect(() => {
     if (props.fetchPopularPodcasts) {
@@ -13,11 +15,31 @@ export const MainViewPage = props => {
     }
   }, []);
 
+  React.useEffect(() => {
+    setFilteredPodcasts(props.popularPodcasts);
+  }, [props.popularPodcasts]);
+
+  const filterPodcasts = filter => {
+    const filterLower = filter.toLowerCase();
+    console.log("filter", filter)
+    if (filterLower !== '') {
+      setFilteredPodcasts(filteredPodcasts.filter(podcast => 
+        podcast['im:name'].label.toLowerCase().includes(filterLower) 
+          || podcast['im:artist'].label.toLowerCase().includes(filterLower)
+      ));
+    } else {
+      setFilteredPodcasts(props.popularPodcasts);
+    }
+  };
+
   return (
     <div className="main-page-container">
       <HeaderComponent fetchingData={props.fetchingData} />
+      <div className="filter-container">
+        <PodcastFilter numberOfPodcasts={filteredPodcasts ? filteredPodcasts.length : 0} filterPodcasts={filterPodcasts} />
+      </div>
       <div className="popular-podcasts-list-container">
-        {props && props.popularPodcasts && props.popularPodcasts.map(podcast => 
+        {filteredPodcasts && filteredPodcasts.map(podcast => 
           <PodcastCard 
             name={podcast['im:name'].label} 
             author={podcast['im:artist'].label}
