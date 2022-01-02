@@ -11,7 +11,7 @@ export const podcastsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        pouplarPodcastsList: action.payload.feed.entry,
+        pouplarPodcastsList: action.payload,
       };
     case FETCHING_IN_PROCESS:
       return {

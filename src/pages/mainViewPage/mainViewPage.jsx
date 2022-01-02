@@ -21,7 +21,6 @@ export const MainViewPage = props => {
 
   const filterPodcasts = filter => {
     const filterLower = filter.toLowerCase();
-    console.log("filter", filter)
     if (filterLower !== '') {
       setFilteredPodcasts(filteredPodcasts.filter(podcast => 
         podcast['im:name'].label.toLowerCase().includes(filterLower) 
@@ -41,6 +40,7 @@ export const MainViewPage = props => {
       <div className="popular-podcasts-list-container">
         {filteredPodcasts && filteredPodcasts.map(podcast => 
           <PodcastCard 
+            key={podcast['im:name'].label}
             name={podcast['im:name'].label} 
             author={podcast['im:artist'].label}
             image={podcast['im:image'][0].label}

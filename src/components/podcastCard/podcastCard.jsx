@@ -4,10 +4,6 @@ import './podcastCard.scss';
 
 
 export const PodcastCard = props => {
-  React.useEffect(() => {
-    console.log('props');
-  }, [props]);
-
   return (
     <div className="podcast-card">
       <div className="card-image">
