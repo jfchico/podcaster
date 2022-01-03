@@ -1,2 +1,2 @@
 export * from './mainViewPage';
-export * from './mainViewPage/mainViewContainer';
+export * from './podcastDetailPage';

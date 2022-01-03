@@ -1,0 +1,33 @@
+$borderColor: #fff;
+$shadowColor: rgba(0, 0, 0, 0.2);
+$borderStyle: 1px solid $borderColor;
+
+.main-page-container {
+  .podcast-detail-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .counter-episodes-container {
+    display: block;
+    margin: 20px;
+
+    .counter-container {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 5px;
+    }
+
+    .episodes-container {
+      width: 1000px;
+    }
+  }
+
+  .shadowed-box {
+    box-shadow: 2px 2px 2px 2px $shadowColor;
+    border: $borderStyle;
+    border-radius: 3px;
+  }
+}
